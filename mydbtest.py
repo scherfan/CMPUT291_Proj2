@@ -29,9 +29,6 @@ def createDatabase(database):
 	# Start timer
 	start = time.time()
 
-	# Set the random number generator seed
-	random.seed(SEED)
-
 	# Populate database
 	for index in range(DB_SIZE):
 		krng = 64 + get_random()
@@ -74,6 +71,9 @@ def main():
 
 	# Parse command line input, grab Database Option
 	mode = command[1]
+	
+	# Set the random number generator seed
+	random.seed(SEED)
 
 	# Do stuff based on selected mode, Btree, Hash, or Indexfile
 	if mode == "btree":
