@@ -28,7 +28,7 @@ def get_random_char():
 
 # Write the results file answers.txt
 def writeAnswerFile(answers) :
-	with open("answers.txt", "w") as file:
+	with open(ANSWER_FILE, "w") as file:
 		for answer in answers:
 			key = answer[0]
 			value = answer[1]
