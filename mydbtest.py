@@ -84,6 +84,14 @@ def retrieveByKey(db, key):
 	print("Time Elapsed: %s" %taken)
 	writeAnswerFile(answers, taken)
 
+# Function used to retrieve records in a range of keys
+def retrieveInRange(db, keys):
+	start = time.time()
+
+
+	end = time.time()
+	taken = end - start
+
 # Function to destroy the database
 def destroy(db):
 	start = time.time()
@@ -162,12 +170,14 @@ def main():
 			key = str.encode(key_str)
 			retrieveByKey(db, key)
 
+		elif option == "4":
+			start_key = input("  Starting key: ")
+			end_key = input("  Ending key: ")
+			keys = [str.encode(start_key), str.encode(end_key)]
+			retrieveInRange(db, keys)
+
 		elif option == "5":
 			destroy(db)
-
-		#elif option == "2":
-			#key = input("  Enter a key: ")
-			#retrieveByKey(db, key)
 
 
 	# Close database file, end of program
