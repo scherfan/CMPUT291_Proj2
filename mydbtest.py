@@ -1,9 +1,12 @@
-import bsddb3 as bsddb
+#import bsddb3 as bsddb
 import random
 import sys
 import time
 
 # Make sure you run "mkdir /tmp/my_db" first!
+
+# Answers file
+ANSWER_FILE = "answers.txt"
 
 # Path of the database file
 DA_FILE = "/tmp/my_db/bsmolley_db"
@@ -22,6 +25,16 @@ def get_random():
 # Generate a random character
 def get_random_char():
     return chr(97 + random.randint(0, 25))
+
+# Write the results file answers.txt
+def writeAnswerFile(answers) :
+	with open("answers.txt", "w") as file:
+		for answer in answers:
+			key = answer[0]
+			value = answer[1]
+			file.write(str(key) + "\n")
+			file.write(str(value) + "\n")
+			file.write("\n")
 
 
 # Function to make a database
@@ -51,16 +64,22 @@ def createDatabase(database):
 
 def retrieveByKey(db, key):
 	start = time.time()
-
+	answers = []
+	records = 0
 	if db.has_key(key):
 		value = db[key]
 		print("Key: %s, Value %s" %(key, value))
+		records += 1
+		pair = [key, value]
+		answers.append(pair)
 
 	else:
 		print("No value exists for key %s" %key)
 
 	end = time.time()
+	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %(end-start))
+	writeAnswerFile(answers)
 
 
 
@@ -83,7 +102,7 @@ def main():
 		except:
 			# Create database if it does not exist
 			print("Database does not exist, making a new one")
-			db = bsddb.btopen(DA_FILE, "c")
+			#db = bsddb.btopen(DA_FILE, "c")
 
 		print("Btree selected")
 
@@ -93,7 +112,7 @@ def main():
 			db = bsddb.hashopen(DA_FILE, "w")
 		except:
 			print("Database does not exist, making a new one")
-			db = bsddb.hashopen(DA_FILE, "c")
+			#db = bsddb.hashopen(DA_FILE, "c")
 
 		print("Hash table selected")
 
