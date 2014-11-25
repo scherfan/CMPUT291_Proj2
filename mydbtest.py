@@ -2,6 +2,7 @@ import bsddb3 as bsddb
 import random
 import sys
 import time
+import os
 
 # Make sure you run "mkdir /tmp/my_db" first!
 
@@ -32,8 +33,8 @@ def writeAnswerFile(answers) :
 		for answer in answers:
 			key = answer[0]
 			value = answer[1]
-			file.write(str(key) + "\n")
-			file.write(str(value) + "\n")
+			file.write("Key: " + str(key) + "\n")
+			file.write("Value: " + str(value) + "\n")
 			file.write("\n")
 
 
@@ -62,13 +63,14 @@ def createDatabase(db):
 	end = time.time()
 	print("Time Elapsed: %s" %(end-start))
 
+# Function used  to retrieve a data by key
 def retrieveByKey(db, key):
 	start = time.time()
 	answers = []
 	records = 0
 	if db.has_key(key):
 		value = db[key]
-		print("Key: %s, Value %s" %(key, value))
+		print("\nKey: %s\n\nValue %s\n" %(key, value))
 		records += 1
 		pair = [key, value]
 		answers.append(pair)
@@ -77,10 +79,25 @@ def retrieveByKey(db, key):
 		print("No value exists for key %s" %key)
 
 	end = time.time()
+	taken = end - start
 	print("Records retrieved %s" %records)
-	print("Time Elapsed: %s" %(end-start))
-	writeAnswerFile(answers)
+	print("Time Elapsed: %s" %taken)
+	writeAnswerFile(answers, taken)
 
+# Function to destroy the database
+def destroy(db):
+	start = time.time()
+
+	keys = db.keys()
+	for key in keys:
+		del db[key]
+		print(key)
+	db.sync()
+
+	end = time.time()
+
+	print("Time Elapsed: %s" %(end-start))
+	os.remove(DA_FILE)
 
 
 def main():
@@ -135,11 +152,18 @@ def main():
 		print("(6) Quit")
 
 		option = input("Enter number of task: ")
-		print(option)
 
 		# Option switch 
 		if option == "1":
 			createDatabase(db)
+
+		elif option == "2":
+			key_str = input("  Enter key: ")
+			key = str.encode(key_str)
+			retrieveByKey(db, key)
+
+		elif option == "5":
+			destroy(db)
 
 		#elif option == "2":
 			#key = input("  Enter a key: ")
