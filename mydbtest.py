@@ -53,8 +53,8 @@ def createDatabase(db):
 		value = ""
 		for i in range(vrng):
 		    value += str(get_random_char())
-		print (key)
-		print (value)
+		print (key + ":" + value)
+	#	print (value)
 		print ("")
 		key = key.encode(encoding='UTF-8')
 		value = value.encode(encoding='UTF-8')
@@ -82,13 +82,19 @@ def retrieveByKey(db, key):
 	taken = end - start
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
-	writeAnswerFile(answers, taken)
+#	writeAnswerFile(answers, taken)
 
 # Function used to retrieve records in a range of keys
 def retrieveInRange(db, keys):
 	start = time.time()
-
-
+	answers = []
+	db.get(keys[0])
+# 	db.iteritems()
+#	decode items if key> start, < end
+# 	UTF-8
+	while(db.current()[1] != keys[1]):
+		answers.append(db.current())
+		db.next()
 	end = time.time()
 	taken = end - start
 
