@@ -86,17 +86,18 @@ def retrieveByKey(db, key):
 
 # Function used to retrieve records in a range of keys
 def retrieveInRange(db, keys):
-	start = time.time()
 	answers = []
-	db.get(keys[0])
-# 	db.iteritems()
-#	decode items if key> start, < end
-# 	UTF-8
-	while(db.current()[1] != keys[1]):
-		answers.append(db.current())
-		db.next()
+	records = 0
+	start = time.time()
+
+	for k,d in db.iteritems():
+		if (k > keys[0]) and (k < keys[1]):
+			answers.append([k,d])
+			records += 1
 	end = time.time()
 	taken = end - start
+	print("Records retrieved %s" %records)
+	print("Time Elapsed: %s" %taken)
 
 # Function to destroy the database
 def destroy(db):
@@ -179,7 +180,7 @@ def main():
 		elif option == "4":
 			start_key = input("  Starting key: ")
 			end_key = input("  Ending key: ")
-			keys = [str.encode(start_key), str.encode(end_key)]
+			keys = [str.encode(start_key, 'utf-8'), str.encode(end_key, 'utf-8')]
 			retrieveInRange(db, keys)
 
 		elif option == "5":
