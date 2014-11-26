@@ -184,7 +184,7 @@ def main():
 		print("(5) Destroy the database")
 		print("(6) Quit")
 
-		option = input("Enter number of task: ")
+		option = input("Enter task number: ")
 
 		# Option switch 
 		if option == "1":
@@ -192,17 +192,24 @@ def main():
 
 		elif option == "2":
 			key_str = input("  Enter key: ")
-			key = str.encode(key_str)
-			retrieveByKey(db, key)
+			if len(key_str) > 0:
+				key = str.encode(key_str)
+				retrieveByKey(db, key)
+
 		elif option == "3":
 			data_str = input(" Enter data: ")
-			data = str.encode(data_str)
-			retrieveData(db, data)
+			if len(data_str) > 0:
+				data = str.encode(data_str)
+				retrieveData(db, data)
+
 		elif option == "4":
 			start_key = input("  Starting key: ")
 			end_key = input("  Ending key: ")
-			keys = [str.encode(start_key, 'utf-8'), str.encode(end_key, 'utf-8')]
-			retrieveInRange(db, keys)
+			if len(start_key) > 0 or len(end_key) > 0:
+				key1 = str.encode(start_key, 'utf-8')
+				key2 = str.encode(end_key, 'utf-8')
+				keys = [key1, key2]
+				retrieveInRange(db, keys)
 
 		elif option == "5":
 			destroy(db)
