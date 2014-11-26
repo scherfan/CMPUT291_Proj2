@@ -100,7 +100,7 @@ def retrieveData(db, data):
 	end = time.time()
 	taken = end - start
 	print("Time elapsed: %s" %taken)
-	print("Records retrieved: "+str(records))
+	print("Records retrieved: "+records)
 
 # Function used to retrieve records in a range of keys
 def retrieveInRange(db, keys):
