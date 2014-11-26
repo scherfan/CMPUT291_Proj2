@@ -54,7 +54,7 @@ def createDatabase(db):
 		for i in range(vrng):
 		    value += str(get_random_char())
 		print (key + ":" + value)
-	#	print (value)
+		#print (value)
 		print ("")
 		key = key.encode(encoding='UTF-8')
 		value = value.encode(encoding='UTF-8')
@@ -124,13 +124,13 @@ def destroy(db):
 	keys = db.keys()
 	for key in keys:
 		del db[key]
-		print(key)
-	db.sync()
+		#print(key)
 
+	db.sync()
 	end = time.time()
 
-	print("Time Elapsed: %s" %(end-start))
-	os.remove(DA_FILE)
+	print("Time Elapsed: %s" %(end-start))	
+	
 
 
 def main():
@@ -211,6 +211,7 @@ def main():
 	# Close database file, end of program
 	try:
 		db.close()
+		os.remove(DA_FILE)
 
 	except Exception as e:
 		print (e)
