@@ -107,6 +107,27 @@ def retrieveByKey(db, key):
 	print("Time Elapsed: %s" %taken)
 #	writeAnswerFile(answers, taken)
 
+# Function used  to retrieve a data by key, quickly
+def retrieveByReversedData(db, key):
+	start = time.time()
+	answers = []
+	records = 0
+	if db.has_key(key):
+		value = db[key]
+		print("\nValue: %s\n\nKey: %s\n" %(key, value))
+		records += 1
+		pair = [key, value]
+		answers.append(pair)
+
+	else:
+		print("No value exists for key %s" %key)
+
+	end = time.time()
+	taken = end - start
+	print("Records retrieved %s" %records)
+	print("Time Elapsed: %s" %taken)
+#	writeAnswerFile(answers, taken)
+
 # Function used to retrieve records with a given data
 def retrieveData(db, data):
 	start = time.time()
@@ -151,14 +172,34 @@ def destroy(db):
 	db.sync()
 	end = time.time()
 
+	print("Time Elapsed: %s" %(end-start))
+
+# Function to destroy both of the databases
+def destroyBoth(db, dbrev):
+	start = time.time()
+
+	keys = db.keys()
+	for key in keys:
+		del db[key]
+	db.sync()
+
+	keys = dbrev.keys()
+	for key in keys:
+		del dbrev[key]
+	dbrev.sync()
+
+	end = time.time()
+
 	print("Time Elapsed: %s" %(end-start))	
 	
 def printDatabase(db, dbrev):
+	print("Primary")
 	for i in db.iteritems():
 		print(i)
 	print()
 	print()
-	if dbrev != "None-existant":
+	print("Secondary")
+	if dbrev != "Non-existant":
 		for i in dbrev.iteritems():
 			print(i)
 
@@ -239,15 +280,15 @@ def main():
 		elif option == "2":
 			key_str = input("  Enter key: ")
 			if len(key_str) > 0:
-				key = str.encode(key_str)
+				key = str.encode(key_str, 'utf-8')
 				retrieveByKey(db, key)
 
 		elif option == "3":
 			data_str = input(" Enter data: ")
 			if len(data_str) > 0:
-				data = str.encode(data_str)
+				data = str.encode(data_str, 'utf-8')
 				if mode == "indexfile":
-					retrieveByKey(dbrev, data)
+					retrieveByReversedData(dbrev, data)
 				else:
 					retrieveData(db, data)
 
@@ -262,8 +303,7 @@ def main():
 
 		elif option == "5":
 			if mode == "indexfile":
-				destroy(db)
-				destroy(dbrev)
+				destroyBoth(db, dbrev)
 			else:
 				destroy(db)
 
@@ -271,7 +311,7 @@ def main():
 			if mode == "indexfile":
 				printDatabase(db, dbrev)
 			else:
-				printDatabase(db, "None-existant")
+				printDatabase(db, "Non-existant")
 		elif option == "7":
 			print("Exiting.")
 
