@@ -11,6 +11,7 @@ ANSWER_FILE = "answers.txt"
 
 # Path of the database file
 DA_FILE = "tmp/my_db/bsmolley_db"
+DI_FILE = "tmp/my_db/bsmolley_dbi"
 
 # Number of records in each database
 DB_SIZE = 100000
@@ -53,12 +54,34 @@ def createDatabase(db):
 		value = ""
 		for i in range(vrng):
 		    value += str(get_random_char())
-		print (key + ":" + value)
-		#print (value)
-		print ("")
+
 		key = key.encode(encoding='UTF-8')
 		value = value.encode(encoding='UTF-8')
 		db[key] = value
+
+	end = time.time()
+	print("Time Elapsed: %s" %(end-start))
+
+# Function to make indexed database
+def createIndexedDatabase(db, dbrev):
+	# Start timer
+	start = time.time()
+
+	# Populate database
+	for index in range(DB_SIZE):
+		krng = 64 + get_random()
+		key = ""
+		for i in range(krng):
+		    key += str(get_random_char())
+		vrng = 64 + get_random()
+		value = ""
+		for i in range(vrng):
+		    value += str(get_random_char())
+
+		key = key.encode(encoding='UTF-8')
+		value = value.encode(encoding='UTF-8')
+		db[key] = value
+		dbrev[value] = key
 
 	end = time.time()
 	print("Time Elapsed: %s" %(end-start))
@@ -124,13 +147,20 @@ def destroy(db):
 	keys = db.keys()
 	for key in keys:
 		del db[key]
-		#print(key)
 
 	db.sync()
 	end = time.time()
 
 	print("Time Elapsed: %s" %(end-start))	
 	
+def printDatabase(db, dbrev):
+	for i in db.iteritems():
+		print(i)
+	print()
+	print()
+	if dbrev != "None-existant":
+		for i in dbrev.iteritems():
+			print(i)
 
 
 def main():
@@ -144,7 +174,7 @@ def main():
 	# Set the random number generator seed
 	random.seed(SEED)
 
-	# Do stuff based on selected mode, Btree, Hash, or Indexfile
+	# Do stuff based on selected mode, Btree, Hash, or indexfile
 	if mode == "btree":
 		try:
 			# Open existing database
@@ -168,27 +198,43 @@ def main():
 
 
 	elif mode == "indexfile":
-		print("Indexfile selected")
+		try:
+			db = bsddb.btopen(DA_FILE, "w")
+			dbrev = bsddb.btopen(DI_FILE, "w")
+		except:
+			# Create database if it does not exist
+			print("Database does not exist, making a new one")
+			db = bsddb.btopen(DA_FILE, "c")
+			dbrev = bsddb.btopen(DI_FILE, "c")
+
+		print("indexfile selected")
+	else:
+		print("Not an option, exiting.")
+		return
 
 	
 	
 
 	# Main menu
 	option = ""
-	while option != "6":
+	while option != "7":
 		print("\nMain Menu")
 		print("(1) Create and populate a database")
 		print("(2) Retrieve records with a given key")
 		print("(3) Retrieve records with a given data")
 		print("(4) Retrieve records with a given range of keys")
 		print("(5) Destroy the database")
-		print("(6) Quit")
+		print("(6) Show all keys to databases")
+		print("(7) Quit")
 
 		option = input("Enter task number: ")
 
 		# Option switch 
 		if option == "1":
-			createDatabase(db)
+			if mode == "indexfile":
+				createIndexedDatabase(db, dbrev)
+			else:
+				createDatabase(db)
 
 		elif option == "2":
 			key_str = input("  Enter key: ")
@@ -200,7 +246,10 @@ def main():
 			data_str = input(" Enter data: ")
 			if len(data_str) > 0:
 				data = str.encode(data_str)
-				retrieveData(db, data)
+				if mode == "indexfile":
+					retrieveByKey(dbrev, data)
+				else:
+					retrieveData(db, data)
 
 		elif option == "4":
 			start_key = input("  Starting key: ")
@@ -212,13 +261,34 @@ def main():
 				retrieveInRange(db, keys)
 
 		elif option == "5":
-			destroy(db)
+			if mode == "indexfile":
+				destroy(db)
+				destroy(dbrev)
+			else:
+				destroy(db)
+
+		elif option == "6":
+			if mode == "indexfile":
+				printDatabase(db, dbrev)
+			else:
+				printDatabase(db, "None-existant")
+		elif option == "7":
+			print("Exiting.")
+
+		else:
+			print("Not an option, choose again.")
 
 
 	# Close database file, end of program
 	try:
-		db.close()
-		os.remove(DA_FILE)
+		if mode == "indexfile":
+			db.close()
+			dbrev.close()
+			os.remove(DA_FILE)
+			os.remove(DI_FILE)
+		else:
+			db.close()
+			os.remove(DA_FILE)
 
 	except Exception as e:
 		print (e)
