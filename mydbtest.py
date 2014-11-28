@@ -19,6 +19,9 @@ DB_SIZE = 100000
 # Random generator seed
 SEED = 10000000
 
+# Convert to microseconds
+MICRO = 100000
+
 # Generate a random number
 def get_random():
     return random.randint(0, 63)
@@ -60,7 +63,7 @@ def createDatabase(db):
 		db[key] = value
 
 	end = time.time()
-	print("Time Elapsed: %s" %(end-start))
+	print("Time Elapsed: %s" %((end-start)*MICRO))
 
 # Function to make indexed database
 def createIndexedDatabase(db, dbrev):
@@ -84,7 +87,7 @@ def createIndexedDatabase(db, dbrev):
 		dbrev[value] = key
 
 	end = time.time()
-	print("Time Elapsed: %s" %(end-start))
+	print("Time Elapsed: %s" %((end-start)* MICRO))
 
 # Function used  to retrieve a data by key
 def retrieveByKey(db, key):
@@ -102,7 +105,7 @@ def retrieveByKey(db, key):
 		print("No value exists for key %s" %key)
 
 	end = time.time()
-	taken = end - start
+	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
 #	writeAnswerFile(answers, taken)
@@ -123,7 +126,7 @@ def retrieveByReversedData(db, key):
 		print("No value exists for key %s" %key)
 
 	end = time.time()
-	taken = end - start
+	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
 #	writeAnswerFile(answers, taken)
@@ -142,7 +145,7 @@ def retrieveData(db, data):
 			answers.append(pair)
 			print(pair)
 	end = time.time()
-	taken = end - start
+	taken = (end - start) * MICRO
 	print("Time elapsed: %s" %taken)
 	print("Records retrieved: "+str(records))
 
@@ -157,7 +160,7 @@ def retrieveInRange(db, keys):
 			answers.append([k,d])
 			records += 1
 	end = time.time()
-	taken = end - start
+	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
 
@@ -171,8 +174,8 @@ def destroy(db):
 
 	db.sync()
 	end = time.time()
-
-	print("Time Elapsed: %s" %(end-start))
+	taken = (end - start) * MICRO
+	print("Time Elapsed: %s" %taken)
 
 # Function to destroy both of the databases
 def destroyBoth(db, dbrev):
@@ -189,8 +192,8 @@ def destroyBoth(db, dbrev):
 	dbrev.sync()
 
 	end = time.time()
-
-	print("Time Elapsed: %s" %(end-start))	
+	taken = (end - start) * MICRO
+	print("Time Elapsed: %s" %taken)	
 	
 def printDatabase(db, dbrev):
 	print("Primary")
