@@ -14,7 +14,7 @@ DA_FILE = "tmp/my_db/bsmolley_db"
 DI_FILE = "tmp/my_db/bsmolley_dbi"
 
 # Number of records in each database
-DB_SIZE = 10
+DB_SIZE = 100000
 
 # Random generator seed
 SEED = 10000000
@@ -147,6 +147,7 @@ def retrieveData(db, data):
 	taken = (end - start) * MICRO
 	print("Time elapsed: %s" %taken)
 	print("Records retrieved: "+str(records))
+	writeAnswerFile(answers)
 
 # Function used to retrieve records in a range of keys
 def retrieveInRange(db, keys):
@@ -162,6 +163,7 @@ def retrieveInRange(db, keys):
 	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
+	writeAnswerFile(answers)
 
 # Function to destroy the database
 def destroy(db):
@@ -335,6 +337,8 @@ def main():
 	except Exception as e:
 		print (e)
 
+	# Clean answers.txt after program closes
+	open(ANSWER_FILE, 'w').close()
 
 if __name__ == "__main__":
 	main()
