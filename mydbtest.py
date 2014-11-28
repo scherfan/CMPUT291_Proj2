@@ -125,7 +125,7 @@ def retrieveByReversedData(db, key):
 		print("No value exists for key %s" %key)
 
 	end = time.time()
-	taken = (end - start) * MICRO
+	taken = ((end - start) * MICRO)
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
 	writeAnswerFile(answers)
@@ -144,7 +144,7 @@ def retrieveData(db, data):
 			answers.append(pair)
 			print(pair)
 	end = time.time()
-	taken = (end - start) * MICRO
+	taken = ((end - start) * MICRO)
 	print("Time elapsed: %s" %taken)
 	print("Records retrieved: "+str(records))
 	writeAnswerFile(answers)
@@ -160,7 +160,7 @@ def retrieveInRange(db, keys):
 			answers.append([k,d])
 			records += 1
 	end = time.time()
-	taken = (end - start) * MICRO
+	taken = ((end - start) * MICRO)
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
 	writeAnswerFile(answers)
@@ -175,7 +175,7 @@ def destroy(db):
 
 	db.sync()
 	end = time.time()
-	taken = (end - start) * MICRO
+	taken = ((end - start) * MICRO)
 	print("Time Elapsed: %s" %taken)
 
 # Function to destroy both of the databases
@@ -193,7 +193,7 @@ def destroyBoth(db, dbrev):
 	dbrev.sync()
 
 	end = time.time()
-	taken = (end - start) * MICRO
+	taken = ((end - start) * MICRO)
 	print("Time Elapsed: %s" %taken)	
 	
 def printDatabase(db, dbrev):
