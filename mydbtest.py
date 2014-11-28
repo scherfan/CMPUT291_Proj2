@@ -137,12 +137,12 @@ def retrieveData(db, data):
 	records = 0
 	for k,d in db.iteritems():
 		val = db[k]
-		records += 1
+
 		if (val == data):
 			pair = [k, val]
 			print("\nKey: %s\n\nValue %s\n" %(k, val))
 			answers.append(pair)
-			print(pair)
+			records += 1
 	end = time.time()
 	taken = ((end - start) * MICRO)
 	print("Time elapsed: %s" %taken)
