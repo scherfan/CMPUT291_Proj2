@@ -14,7 +14,7 @@ DA_FILE = "tmp/my_db/bsmolley_db"
 DI_FILE = "tmp/my_db/bsmolley_dbi"
 
 # Number of records in each database
-DB_SIZE = 100000
+DB_SIZE = 10
 
 # Random generator seed
 SEED = 10000000
@@ -33,14 +33,13 @@ def get_random_char():
 
 # Write the results file answers.txt
 def writeAnswerFile(answers) :
-	with open(ANSWER_FILE, "w") as file:
+	with open(ANSWER_FILE, "a") as file:
 		for answer in answers:
 			key = answer[0]
 			value = answer[1]
 			file.write("Key: " + str(key) + "\n")
 			file.write("Value: " + str(value) + "\n")
 			file.write("\n")
-
 
 # Function to make a database
 def createDatabase(db):
@@ -108,7 +107,7 @@ def retrieveByKey(db, key):
 	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
-#	writeAnswerFile(answers, taken)
+	writeAnswerFile(answers)
 
 # Function used  to retrieve a data by key, quickly
 def retrieveByReversedData(db, key):
@@ -129,7 +128,7 @@ def retrieveByReversedData(db, key):
 	taken = (end - start) * MICRO
 	print("Records retrieved %s" %records)
 	print("Time Elapsed: %s" %taken)
-#	writeAnswerFile(answers, taken)
+	writeAnswerFile(answers)
 
 # Function used to retrieve records with a given data
 def retrieveData(db, data):
