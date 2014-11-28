@@ -153,10 +153,18 @@ def retrieveData(db, data):
 def retrieveInRange(db, keys):
 	answers = []
 	records = 0
+	# Now is doesn't matter what keys are entered
+	if keys[0] < keys[1]:
+		lower = keys[0]
+		upper = keys[1]
+	else:
+		lower = keys[1]
+		upper = keys[0]
+
 	start = time.time()
 
 	for k,d in db.iteritems():
-		if (k > keys[0]) and (k < keys[1]):
+		if (k > lower) and (k < upper):
 			answers.append([k,d])
 			records += 1
 	end = time.time()
