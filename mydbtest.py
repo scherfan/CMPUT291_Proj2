@@ -173,6 +173,30 @@ def retrieveInRange(db, keys):
 	print("Time Elapsed: %s" %taken)
 	writeAnswerFile(answers)
 
+def retrieveInRangeBtree(db, keys):
+	records = 0
+	key = db.first()[0]
+	answers = []
+	lower = keys[0]
+	upper = keys[1]
+
+	start = time.time()
+
+	while key < lower:
+		key = db.next()[0]
+	answers.append(key)
+	records += 1
+	while key < upper:
+		key = db.next()[0]
+		answers.append(key)
+		records += 1
+
+	end = time.time()
+	taken = ((end - start) * MICRO)
+	print("Records retrieved %s" %records)
+	print("Time Elapsed: %s" %taken)
+	writeAnswerFile(answers)
+
 # Function to destroy the database
 def destroy(db):
 	start = time.time()
@@ -311,7 +335,10 @@ def main():
 				key1 = str.encode(start_key, 'utf-8')
 				key2 = str.encode(end_key, 'utf-8')
 				keys = [key1, key2]
-				retrieveInRange(db, keys)
+				if mode == 'btree':
+					retrieveInRangeBtree(db, keys)
+				else:
+					retrieveInRange(db, keys)
 
 		elif option == "5":
 			if mode == "indexfile":
