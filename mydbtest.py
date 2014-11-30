@@ -149,7 +149,7 @@ def retrieveData(db, data):
 	print("Records retrieved: "+str(records))
 	writeAnswerFile(answers)
 
-# Function used to retrieve records in a range of keys
+# Function used to retrieve records in a range of keys from hash tables and indexed files
 def retrieveInRange(db, keys):
 	answers = []
 	records = 0
@@ -173,6 +173,7 @@ def retrieveInRange(db, keys):
 	print("Time Elapsed: %s" %taken)
 	writeAnswerFile(answers)
 
+# Function used to retrieve records in a range of keys from Btrees
 def retrieveInRangeBtree(db, keys):
 	records = 0
 	key = db.first()[0]

@@ -1,51 +1,51 @@
-(Time, # of retrieved records)
+(Time(micro-sec), # of retrieved records, key)
 Key Search
 B-Tree
-1. 41.9855, 1
-2. 13.3991, 1
-3. 45.2042, 1
-4. 15.8787, 1
+1. 42.6054, 1, aaaendcvttciudmwekwbswepehseygmvtrqjyetvmlvtmjjtqhyyepgxqcqljfzb
+2. 38.2900, 1, zzzzeowpyirzdbdhxwqklvegmwaqcxesuwzyacewedzxdxxufnqozjfuoijrnjgqfxjhjelyb
+3. 40.6027, 1, larzegvxcdypgnqlshhcwtghcwubsssizfqhsfecvgdxfwefgiixgmcfhtwblxlljqwhjcmjosa
+4. 14.0905, 1, qhxeatkttvrkgzrxuohvmnbepgxrxbacowirtujnimxoglvypoxxczcjrmxezriclmexjuaa
 Hash Table
-1. 16.4032, 1
-2. 41.4133, 1
-3. 14.9012, 1
-4. 44.6081, 1
+1. 11.49178, 1, erstenkxjuidebdlarxhctoofvluvuzpqpnidyoovzbqgamybsbnunrknchujdooujvllfdzbdrzfjwdurxnqymbniurnyvvhml
+2. 43.9882, 1, cuikdhgdsxwyqnbimguayybvwdaybvnoflnopnphxgfhohevekgexnvdsuzejktrkihsdcocyefikbmgvustmnpwbbptdyhdwuzjfcxvwyut
+3. 44.4889, 1, xzuvdfrnqddulqjvgmdwbfkmzwntufgtmtidesdijugsnqbvnhcyoylxtubcjkkhbclxnmxwk
+4. 40.8173, 1, lbploeonhfagbrgbkyiwytzbxrfdsndqalsjxfitqxfhabfnpieughnlggdvlrsepf
 IndexFile
-1. 43.7975, 1
-2. 14.1859, 1
-3. 37.9086, 1
-4. 13.5899, 1
+1.
+2.
+3.
+4.
 
 Data Search
 B-Tree
-1. 60290.5035, 1
-2. 59828.9013, 1
-3. 60606.6227, 1
-4. 60103.7025, 1
+1. 117128.9921, 1, npamjcwxdhmnyspipdssfjxdyxfubpeuelbaxwzjkouqqaulnafbkkmslrausropqyuhdgrhfghtlpyqwovillr
+2. 117031.0020, 1, urhsmokgehprjobahrjyhjuyfvkgznsxtavojcefupfmisfzvhotaydiwywhzahkwdfqcxuqffaaxlrttieqv
+3. 117260.5991, 1, irljqoykyxnhbsosoqmbvjdjpplzkigjzvaqwqokkkwcccbinxwxvixjsaxrnrqcqmdotezeclqfgncyf
+4. 117151.6895, 1, exseiqdyeddgrgnanqkqqsdcdfugxqrzmwjisqqgtrzxqbbxefqmjtssuqnomrkjocgtjybaadanvkokslntxpbypqjdvhmrfwgbqxwjlpnwelmwdysdlkldltzafi
 Hash Table
-1. 72413.8975, 1
-2. 70067.8110, 1
-3. 70323.4911, 1
-4. 69879.1981, 1
+1.
+2.
+3.
+4.
 IndexFile
-1. 53.5011, 1
-2. 54.8840, 1
-3. 38.1947, 1
-4. 45.8956, 1
+1.
+2.
+3.
+4.
 
 Range Search
 B-Tree
-1. 22706.4848, 20235
-2. 26481.8192, 80722
-3. 20398.4022, 53
-4. 22182.5838, 41304
+1. 4713.6068, 301, (cxxcdllcgowdfpqkebpvldbkwknjpoxlkpkszizfltmufhwqszksbnupmmunfjnojognijvjlstzujlmewmvoeojznajukqnebuakweuzmfcvcmwxiqgmcgfnk, czxcmqphshipvugrqpvleeeuhnyadyoggkdrxwulssljodnrtqmuczcjrxlnftrlcckszzqlsawqycewfvkotzdvbhtbxwyyrheohizlynlzzewevdvrcdo)
+2. 4914.8798, 348, (dbkqteyesrjycovdfzanhzgxzwvzrutrcuqkpoulgqixwubgpwpreyjkhxffzybpjnneuzbqdcyklnkieiffmnfxy, ddqzzmrcmjuqsmsdfcpcdgzipsnbtxsbczuqltdskpaamqrpfekhkmafudslmeovusqrxjtmmypvzgfyoujqgmybldsixfdsqxgelqbapcsnqyolgjkporonboxsv) 
+3. 31094.9087, 34516, (joqlouglwkbgzhgegyefmzledqdtwhxcdizxnibaqyprglfgjnsrcdxjlbcchtkbybpzubgspxjexjzgtbca, smymrpkdicjiqtghamdbdospritywshtqzvobnyxdhdvmkbyoxzccbkxdxalfqytcbndhvjiuizpkbktqoljmyokkulfzdtyndjuokcfpyoejpxd)
+4. 41131.9017, 24617, (snetnjkpjlabkihxnorpvcercieqbgqcaqnsfhkrgwovqnrvwfikhrvpapsazjmzluarlnehoymlpnpniudytfhw, yxgtalabffpvpycqevbdtrprxnufebbbgihxtpfqctaefjuiwtwgbhzlfuqwxbfmjxwcsoanow)
 Hash Table
-1. 27722.0011, 1
-2. 35496.8786, 90119
-3. 29553.4134, 42613
-4. 32266.4022, 73837
+1.
+2.
+3.
+4.
 IndexFile
-1. 20980.5965, 0
-2. 32024.0974, 96282
-3. 22412.5147, 9363
-4. 23274.0879, 36246
+1.
+2.
+3.
+4.
