@@ -235,10 +235,10 @@ def printDatabase(db, dbrev):
 		print(i)
 	print()
 	print()
-	print("Secondary")
-	if dbrev != "Non-existant":
-		for i in dbrev.iteritems():
-			print(i)
+	#print("Secondary")
+	#if dbrev != "Non-existant":
+	#	for i in dbrev.iteritems():
+	#		print(i)
 
 
 def main():
