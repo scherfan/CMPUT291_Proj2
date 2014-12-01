@@ -1,59 +1,51 @@
 (Time(micro-sec), # of retrieved records, key)
-*********************************************************************************************************************************
 Key Search
 B-Tree
 1. 42.6054, 1, aaaendcvttciudmwekwbswepehseygmvtrqjyetvmlvtmjjtqhyyepgxqcqljfzb
 2. 38.2900, 1, zzzzeowpyirzdbdhxwqklvegmwaqcxesuwzyacewedzxdxxufnqozjfuoijrnjgqfxjhjelyb
 3. 40.6027, 1, larzegvxcdypgnqlshhcwtghcwubsssizfqhsfecvgdxfwefgiixgmcfhtwblxlljqwhjcmjosa
 4. 14.0905, 1, qhxeatkttvrkgzrxuohvmnbepgxrxbacowirtujnimxoglvypoxxczcjrmxezriclmexjuaa
-
 Hash Table
 1. 11.49178, 1, erstenkxjuidebdlarxhctoofvluvuzpqpnidyoovzbqgamybsbnunrknchujdooujvllfdzbdrzfjwdurxnqymbniurnyvvhml
 2. 43.9882, 1, cuikdhgdsxwyqnbimguayybvwdaybvnoflnopnphxgfhohevekgexnvdsuzejktrkihsdcocyefikbmgvustmnpwbbptdyhdwuzjfcxvwyut
 3. 44.4889, 1, xzuvdfrnqddulqjvgmdwbfkmzwntufgtmtidesdijugsnqbvnhcyoylxtubcjkkhbclxnmxwk
 4. 40.8173, 1, lbploeonhfagbrgbkyiwytzbxrfdsndqalsjxfitqxfhabfnpieughnlggdvlrsepf
-
 IndexFile
 1. 44.41738, 1, acmstxulburncjlifsstfgrukcgazuvamujetyluhvblzdckbgnhbfditzusekgdfaobqnmzepdsjydolwgatmqfauiczncmngucsucpvivgyeuuuqlsuqr
 2. 63.2048, 1, kwdzhrfcndyfybkuulryspgoixtaytuoahllwecdfutcpxwxcmzhsclshfyttrtaltheulvhsunkogogfmxrjagneuuxildzcmzoahhiqenglmfkmoxnn
 3. 42.0809, 1, srjmjjixqyotukteyosstmscslytvpertsqdmrsmokvtwwdkvbxfrqisafhgbwvycscgrlxzrvvvvivhxtcpfavxgihzywfjktrnugfowhkuoyrfubrrchfnhfnft
 4. 13.6137, 1, ykskmzbvtpolqelxogfojyeabcugcnbsqeadvsppqifzfdkpfpeloljqxvqsniraqwumhfezwwnzvpalpavvwychuqligtzvdnrd
-**********************************************************************************************************************************
+
 Data Search
 B-Tree
 1. 117128.9921, 1, npamjcwxdhmnyspipdssfjxdyxfubpeuelbaxwzjkouqqaulnafbkkmslrausropqyuhdgrhfghtlpyqwovillr
 2. 117031.0020, 1, urhsmokgehprjobahrjyhjuyfvkgznsxtavojcefupfmisfzvhotaydiwywhzahkwdfqcxuqffaaxlrttieqv
 3. 117260.5991, 1, irljqoykyxnhbsosoqmbvjdjpplzkigjzvaqwqokkkwcccbinxwxvixjsaxrnrqcqmdotezeclqfgncyf
 4. 117151.6895, 1, exseiqdyeddgrgnanqkqqsdcdfugxqrzmwjisqqgtrzxqbbxefqmjtssuqnomrkjocgtjybaadanvkokslntxpbypqjdvhmrfwgbqxwjlpnwelmwdysdlkldltzafi
-
 Hash Table
 1. 130166.79287, 1, whxekonzwgddbgixrulpwlheilmqlbxsorupttxubgqbkufcfynjayxquvijxnznyotuvopyeuidffwxccvpga
 2. 130425.7154, 1, edikhflrswlybphksjhgdvwkwpxrhcaraonkwivfphzvoijtjouccbrwtveflkiz
 3. 129905.1046, 1, apxqxhurqvtyqgxtujiezsonzgglgctsfxvwfsupnoruzqzsehwwtsjwrqhkdynsdjdoquzuzybgzdwdqbskrfufvsmzujkntuynhxmr
 4. 130172.6818, 1, gkxspcmpliclljovnhcuollqmotshywuptwyqgszdmjsgqargehcnbdklnhhmwfrpbqfovyfhdgxdhkjvjudimubfmvjfwmdtfgingbhlugyoshivtjllffs
-
 IndexFile
 1. 54.0018, 1, yaoysqcbhzntyoucohictnsrffyolpknyctsfofbojumhswgzccvqryxuyvraixgglvahinzyuxulekfqnrxtaxcupsdgsarsdjaghaycrerbylhao
 2. 42.2001, 1, vzjqdddwxfokzgcvmpbwjqllmgckgnmezfiujqvrkcdozloabmunnxanljbbojzozmqggajghkfsjotnlbwo
 3. 40.1974, 1, fvueprzldzuubdbcwlwsecfybaryqphfgjiqggnncuilhenvbyldvvgwgnckzbnkicfqckucozgppauhxnslhuynrqoujrzwherehkb
 4. 40.9126, 1, ejtowdxmfouwdygzsrqtemqixcotutypsblhxjnzvxmjziwgxfyqagxbxpjirhotqoomvwhcfytgorcumykiekqqfvavmtynetwiwzmegqcjuldpbqj
-**********************************************************************************************************************************
+
 Range Search
 B-Tree
 1. 4713.6068, 301, (cxxcdllcgowdfpqkebpvldbkwknjpoxlkpkszizfltmufhwqszksbnupmmunfjnojognijvjlstzujlmewmvoeojznajukqnebuakweuzmfcvcmwxiqgmcgfnk, czxcmqphshipvugrqpvleeeuhnyadyoggkdrxwulssljodnrtqmuczcjrxlnftrlcckszzqlsawqycewfvkotzdvbhtbxwyyrheohizlynlzzewevdvrcdo)
 2. 4914.8798, 348, (dbkqteyesrjycovdfzanhzgxzwvzrutrcuqkpoulgqixwubgpwpreyjkhxffzybpjnneuzbqdcyklnkieiffmnfxy, ddqzzmrcmjuqsmsdfcpcdgzipsnbtxsbczuqltdskpaamqrpfekhkmafudslmeovusqrxjtmmypvzgfyoujqgmybldsixfdsqxgelqbapcsnqyolgjkporonboxsv) 
 3. 31094.9087, 34516, (joqlouglwkbgzhgegyefmzledqdtwhxcdizxnibaqyprglfgjnsrcdxjlbcchtkbybpzubgspxjexjzgtbca, smymrpkdicjiqtghamdbdospritywshtqzvobnyxdhdvmkbyoxzccbkxdxalfqytcbndhvjiuizpkbktqoljmyokkulfzdtyndjuokcfpyoejpxd)
 4. 41131.9017, 24617, (snetnjkpjlabkihxnorpvcercieqbgqcaqnsfhkrgwovqnrvwfikhrvpapsazjmzluarlnehoymlpnpniudytfhw, yxgtalabffpvpycqevbdtrprxnufebbbgihxtpfqctaefjuiwtwgbhzlfuqwxbfmjxwcsoanow)
-
 Hash Table
 1. 56734.7050, 39317, (adhbqxifjpgrmdwturldkxtynssjjlmpzebknscvpeazsovdwspdebgmobvkzszmmrqqdwvkfhuumrgtsraga, kjyioebhqijfrpvbshxixzfhmdbalrwhzonzsbfinftsfeoevseqlvpwkyqxbjujlmgbznvlgwlljsrhjxeghlyueqpukghccbdteaqhvswvkororxxorrhehdth)
 2. 52274.7040, 5027, (qpqdmybnlcnqjmzqhjmtlxsxrxfellhpykukxpzyovvezpzxciacwjprhamzerrfgya, rxevhciwopqrvvtzisxdswieraaigxtzvlrfsuljijzcgeqdjrpnghzzctacypportjuevxhcvwsrhygxbgycwszgezmwkexburxdgawggrzhi)
 3. 55826.1871, 26674, (bdlpcwjoczizrqhfdqzkpuermdluerlwxsyndcwquuvhvrqyembolnzqqozxhzwrcgztyogvosjlvbijqqvpghaxshultzzsywaawtofkran, iboxaoupdardsztvalbkmtpjyozeefzjzxzdvcmvjnsfdqfciuhyuqtuzwkuvyygmpszwmpsleyxbmogxmglggddttontsujmndkglxxflinkww)
 4. 54263.9971, 23493, (wrflzenbhbimpndcnrcdvipaarhlhrtlteeskrhhufxezmrqpuxfehsltatajfyascppbcgpzceienvjuychjncpqsszmbzmnvtgyfhlolzqssfn, knfdtrvzavtkcyeflkprduyjxklxfzborlisaqcqgzazgtargowtdabvirnmtebqlonofzvsfxcjjmqycsjbirskmlzgbdbdtsklfublzfinfssdpkojural)
-
 IndexFile
 1. 49601.3165, 81535, (zzwreerlgrpkelhiyifewbgqvpuvassmhcoxovvicqfvbvtxyagfwytqxjosmogjzriothhucxewwzxmgajmklbeerwvhvmqatknmkdmdgnkvwigioanwyuqopf, zzzzeowpyirzdbdhxwqklvegmwaqcxesuwzyacewedzxdxxufnqozjfuoijrnjgqfxjhjelyb)
 2. 43632.4835, 59833, (eodngftzgunvlwoetzndqmxtnqlenpozrdkbzpuqfxprtefmjjrbirapbboyndetppmhjpsgxwvhkklpaccxafjipj, ucdrviynzgtwtellzdekjmzhftprzjethzwretvcbwefhpechxtardmjajfulxyypgavryhemkfjpgxxbaiy)
 3. 42202.7111, 35456, (seeskhbvnfraoibjlnxitmvbuwafodqplntteaatdjfopiamgoaaylzxkvedethrlcolhgbagnexdacvxdacls, izhyllcunirwkbijwqjmcbgpnsoptmojmdgjataealeskspjzfgexbpbcgqpjlumvlwretcecfnpktqakurbowintecduguzys)
 4. 38046.5984, 438, (iznkunoqpssemssdbapjnfavzoropmdczweqinbbyvrqsucetpppxizchkcjrhcnjdlrbjseobgbvntlsgtaqwspmyeg, jclniyqdpqunhajadihyftdqhqhfjaqiswpdhrcfwdhditiqxatpdyegcpimzmvssgzpbratrtlwmwzsfynkefmzibinncydghizsaipir)
-**********************************************************************************************************************************
