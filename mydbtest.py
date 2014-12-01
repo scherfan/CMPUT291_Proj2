@@ -164,7 +164,7 @@ def retrieveInRange(db, keys):
 	start = time.time()
 
 	for k,d in db.iteritems():
-		if (k > lower) and (k < upper):
+		if (k > lower) and (k <= upper):
 			answers.append([k,d])
 			records += 1
 	end = time.time()
