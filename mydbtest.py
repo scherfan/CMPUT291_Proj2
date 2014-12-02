@@ -4,7 +4,7 @@ import sys
 import time
 import os
 
-# Make sure you run "mkdir /tmp/my_db" first!
+# Make sure you enter "$ mkdir /tmp/my_db" first!
 
 # Answers file
 ANSWER_FILE = "answers.txt"
@@ -136,9 +136,9 @@ def retrieveData(db, data):
 	answers = []
 	records = 0
 	for k,d in db.iteritems():
-		val = db[k]
-
-		if (val == data):
+		val = db[k] # Put keys in a list
+		# If it is the correct key then print
+		if (val == data): 
 			pair = [k, val]
 			print("\nKey: %s\n\nValue %s\n" %(k, val))
 			answers.append(pair)
@@ -153,7 +153,7 @@ def retrieveData(db, data):
 def retrieveInRange(db, keys):
 	answers = []
 	records = 0
-	# Now is doesn't matter what keys are entered
+	# Now it doesn't matter what order keys are entered in
 	if keys[0] < keys[1]:
 		lower = keys[0]
 		upper = keys[1]
@@ -228,7 +228,8 @@ def destroyBoth(db, dbrev):
 	end = time.time()
 	taken = ((end - start) * MICRO)
 	print("Time Elapsed: %s" %taken)	
-	
+
+# Used to print out the values in the db	
 def printDatabase(db, dbrev):
 	print("Primary")
 	for i in db.iteritems():
@@ -277,6 +278,8 @@ def main():
 
 	elif mode == "indexfile":
 		try:
+			# create a b-tree and then a second to use
+			# as an index
 			db = bsddb.btopen(DA_FILE, "w")
 			dbrev = bsddb.btopen(DI_FILE, "w")
 		except:
@@ -308,6 +311,8 @@ def main():
 		option = input("Enter task number: ")
 
 		# Option switch 
+		# Each option checks to see which mode is being run
+		# and sends the appropriate information to the appropriate function
 		if option == "1":
 			if mode == "indexfile":
 				createIndexedDatabase(db, dbrev)
@@ -328,7 +333,8 @@ def main():
 					retrieveByReversedData(dbrev, data)
 				else:
 					retrieveData(db, data)
-
+					
+		# Encodes the two keys entered and then sends them to the proper function
 		elif option == "4":
 			start_key = input("  Starting key: ")
 			end_key = input("  Ending key: ")
