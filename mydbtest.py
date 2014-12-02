@@ -1,3 +1,11 @@
+""" 
+* Note: Upon closing this program the database will not be destroyed, you must 
+* do it manually by using the mani menu option '5'. Otherwise an error will occur
+* upon re-running the program.
+*
+*
+"""
+
 import bsddb3 as bsddb
 import random
 import sys
@@ -176,19 +184,19 @@ def retrieveInRange(db, keys):
 # Function used to retrieve records in a range of keys from Btrees
 def retrieveInRangeBtree(db, keys):
 	records = 0
-	key = db.first()[0]
+	key = db.first()
 	answers = []
 	lower = keys[0]
 	upper = keys[1]
 
 	start = time.time()
 
-	while key < lower:
-		key = db.next()[0]
+	while key[0] < lower:
+		key = db.next()
 	answers.append(key)
 	records += 1
-	while key < upper:
-		key = db.next()[0]
+	while key[0] < upper:
+		key = db.next()
 		answers.append(key)
 		records += 1
 
